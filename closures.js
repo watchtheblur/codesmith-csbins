@@ -82,9 +82,9 @@ function once(func) {
 
 // /*** Uncomment these to check your work! ***/
 const onceFunc = once(addByTwo);
-console.log(onceFunc(4));  // => should log 6
-console.log(onceFunc(10));  // => should log 6
-console.log(onceFunc(9001));  // => should log 6
+// console.log(onceFunc(4));  // => should log 6
+// console.log(onceFunc(10));  // => should log 6
+// console.log(onceFunc(9001));  // => should log 6
 
 
 // CHALLENGE 5
@@ -189,7 +189,14 @@ console.log(getDay()); // => should log 'Fri'
 
 // CHALLENGE 10
 function defineFirstArg(func, arg) {
-	
+	// input: function, arg
+  	// function passed in will accept at least one argument
+  return (arg2) => {
+    return func(arg, arg2)
+  }
+  // return new function (additional arg)
+  	// invokes passed in function (arg, additional arg)
+		// return result
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -200,8 +207,17 @@ function defineFirstArg(func, arg) {
 
 // CHALLENGE 11
 function dateStamp(func) {
-
+	return (...args) => {
+	let obj = {};
+    let date = new Date();
+    obj.date = date.getTime();
+    obj.output = func(...args);
+    return obj;
+  }
 }
+
+
+// console.log(date.getTime())
 
 // /*** Uncomment these to check your work! ***/
 // const stampedMultBy2 = dateStamp(n => n * 2);
@@ -211,7 +227,23 @@ function dateStamp(func) {
 
 // CHALLENGE 12
 function censor() {
-
+	// create obj to save strings
+  let obj = {};
+  
+  // return inner function(1 or 2 args)
+  return (str1, str2) => {
+  	// if 2, hold onto the two strings as a pair and save as key value pairs in obj
+    if (str2) {
+      obj[str1] = str2;
+    } else {
+      for (let prop in obj) {
+	      str1 = str1.replace(prop, obj[prop]);
+      }
+      return str1;
+    }
+  	// if 1, return same string, with...
+  		// first string replaced by second string
+  }
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -222,8 +254,22 @@ function censor() {
 
 
 // CHALLENGE 13
-function createSecretHolder(secret) {
+// function createSecretHolder(secret) {
+//   let mySecret = secret;
+// 	return () => {
+//     let obj = {};
+//     obj.setSecret = () => mySecret = secret;
+//     obj.getSecret = () => mySecret;
+//     return obj;
+//   }
+// }
 
+function createSecretHolder(secret) {
+  let mySecret = secret;
+	return {
+    setSecret: (input) => mySecret = input,
+    getSecret: () => mySecret
+  }
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -348,3 +394,5 @@ function blackjack(array) {
 // console.log(i_ALSO_like_to_live_dangerously()); // => should log 'bust'
 // console.log(i_ALSO_like_to_live_dangerously()); // => should log 'you are done!
 // console.log(i_ALSO_like_to_live_dangerously()); // => should log 'you are done!
+
+
