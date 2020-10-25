@@ -179,12 +179,12 @@ function cycleIterator(array) {
 }
 
 // /*** Uncomment these to check your work! ***/
-const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
-const getDay = cycleIterator(threeDayWeekend);
-console.log(getDay()); // => should log 'Fri'
-console.log(getDay()); // => should log 'Sat'
-console.log(getDay()); // => should log 'Sun'
-console.log(getDay()); // => should log 'Fri'
+// const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
+// const getDay = cycleIterator(threeDayWeekend);
+// console.log(getDay()); // => should log 'Fri'
+// console.log(getDay()); // => should log 'Sat'
+// console.log(getDay()); // => should log 'Sun'
+// console.log(getDay()); // => should log 'Fri'
 
 
 // CHALLENGE 10
@@ -273,8 +273,8 @@ function createSecretHolder(secret) {
 }
 
 // /*** Uncomment these to check your work! ***/
-// obj = createSecretHolder(5)
-// obj.getSecret() // => returns 5
+let obj = createSecretHolder(5)
+obj.getSecret()// => returns 5
 // obj.setSecret(2)
 // obj.getSecret() // => returns 2
 
@@ -394,5 +394,4 @@ function blackjack(array) {
 // console.log(i_ALSO_like_to_live_dangerously()); // => should log 'bust'
 // console.log(i_ALSO_like_to_live_dangerously()); // => should log 'you are done!
 // console.log(i_ALSO_like_to_live_dangerously()); // => should log 'you are done!
-
 
